@@ -22,6 +22,8 @@ class AUDIO_RECEIVER {
 		this.inputs = config.inputs
 		this.maxVolume = config.maxVolume || 100
 		this.volume = config.volume
+		this.customPowerOn = config.customPowerOn
+		this.customPowerOff = config.customPowerOff
 		if (!this.volume.name)
 			this.volume.name = `${this.name} Volume`
 
@@ -34,7 +36,7 @@ class AUDIO_RECEIVER {
 
 		this.UUID = this.api.hap.uuid.generate(this.id)
 		this.log.easyDebug(`Creating New AUDIO RECEIVER Accessory: "${this.name}"`)
-		this.accessory = new this.api.platformAccessory(this.name, this.UUID, this.api.hap.Accessory.Categories.AUDIO_RECEIVER)
+		this.accessory = new this.api.platformAccessory(this.name, this.UUID, this.api.hap.Categories.AUDIO_RECEIVER)
 
 
 		let informationService = this.accessory.getService(Service.AccessoryInformation)

@@ -67,11 +67,23 @@
             },
             "maxVolume": {
               "title": "Main Zone Max Volume",
-              "description": "Adjust if the maximum volume in HomeKit is too high or too low",
+              "description": "Adjust if the maximum volume in HomeKit is too high or too low. For newer Pioneer / Onkyo receivers that report volume on a 0-200 scale (e.g. VSX-LX series), set this to 200.",
               "default": 100,
               "type": "integer",
               "minimum": 1,
               "maximum": 200
+            },
+            "customPowerOn": {
+              "title": "Custom Power-On Command",
+              "description": "Optional shell command to run instead of the receiver's networked power-on. Useful for amplifiers without networked standby (e.g. an external script that toggles a wired remote/Arduino). Leave empty to use the standard networked power-on.",
+              "type": "string",
+              "required": false
+            },
+            "customPowerOff": {
+              "title": "Custom Power-Off Command",
+              "description": "Optional shell command to run instead of the receiver's networked power-off. Leave empty to use the standard networked power-off.",
+              "type": "string",
+              "required": false
             },
             "enableZone2": {
               "title": "Enable Zone 2",
@@ -130,6 +142,8 @@
             "receivers[].name",
             "receivers[].volumeAccessory",
             "receivers[].maxVolume",
+            "receivers[].customPowerOn",
+            "receivers[].customPowerOff",
             {
               "type": "section",
               "expandable": true,
